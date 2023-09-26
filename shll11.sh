@@ -3,17 +3,11 @@
 tput clear
 while true; do
 	clear
-#	echo -e -n "\E[05;15H"------------"
 	echo -e  "\E[05;15HSelect Menu"
 	echo -e  "\E[1;36m [A]  Calender\E[Om"
 	echo -e  "\E[1;36m [B]  Finding Permission\E[Om"
 	echo -e  "\E[1;36m [C]  Directiry\E[Om"
 	echo -e  "\E[1;36m [X]  Exit\E[Om\E[Om"
-#	echo "Menu"
-#	echo "[A] calender"
-#	echo "[B] Finding Permission"
-#	echo "[C] Directiry"
-#	echo "[X] Exit"
 
 	read -p "select menu: " ss	
 	
