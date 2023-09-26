@@ -2,13 +2,18 @@
 
 tput clear
 while true; do
-#	tput clear
+	clear
 #	echo -e -n "\E[05;15H"------------"
-	echo "Menu"
-	echo "[A] calender"
-	echo "[B] Finding Permission"
-	echo "[C] Directiry"
-	echo "[X] Exit"
+	echo -e  "\E[05;15HSelect Menu"
+	echo -e  "\E[1;36m [A]  Calender\E[Om"
+	echo -e  "\E[1;36m [B]  Finding Permission\E[Om"
+	echo -e  "\E[1;36m [C]  Directiry\E[Om"
+	echo -e  "\E[1;36m [X]  Exit\E[Om\E[Om"
+#	echo "Menu"
+#	echo "[A] calender"
+#	echo "[B] Finding Permission"
+#	echo "[C] Directiry"
+#	echo "[X] Exit"
 
 	read -p "select menu: " ss	
 	
@@ -19,10 +24,9 @@ while true; do
 	path3="/home/user_2049_2/Downloads:"
 
 	case $ss in
-	[Aa])
-		echo "Menu A get Calendar"
-		read -p "INPUT Month" m
-		read -p "INPUT Year" y
+	[Aa])	
+		read -p "INPUT Month: " m
+		read -p "INPUT Year: " y
 		
 		echo "You cal $m Month $y Year"
 
@@ -34,17 +38,18 @@ while true; do
 			if [ -n "$path" ]; then
 				path=$(echo "$path" | sed 's/:$//')
 				cal $m $y > "$path/$filename"
+				echo "Successful $path/$filename"
 			fi
 		done
-
-
+		
+		echo -e -n "\E[02;0H \E[7m \E[5m Enter to back\E[m \E[m \E[m"
+		read clear
 #		cal $m $y > /home/user_2049_2/Public/test/my1st.txt
 #		cal $m $y > /home/user_2049_2/Documents/my2nd.txt
 #		cal $m $y > /home/user_2049_2/Downloads/my3rd.txt
 		
 	;;
 	[Bb])
-		echo "B"
 		read -p "INPUT PREMISSION: " PP
 		pathg=("$path1" "$path2" "$path3")
 
@@ -79,6 +84,8 @@ while true; do
       		      path=${path#*:}
         done
 done
+		echo -e -n "\E[02;0H \E[7m \E[5m Enter to back\E[m \E[m \E[m"
+                read clear
 
 	;;
 	[Cc])
@@ -91,12 +98,14 @@ done
 			if [ -n "$result" ]
 			then
 				pathfile=${path%%:*}
-				echo "mkdir DirInDoc to $pathfile"
+				echo "mkdir DirInDoc to $pathfile Successful"
 				mkdir -p $pathfile/DirInDoc
 			fi
 			path=${path#*:}
 		done
-
+	
+		echo -e -n "\E[02;0H \E[7m \E[5m Enter to back\E[m \E[m \E[m"
+                read clear
 	;;
 	[Xx])
 		echo "Exit"
